@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 const projectSchema = mongoose.Schema({
-	nom: {
+	name: {
 		type: String,
 		required: true
 	},
@@ -16,7 +16,7 @@ const projectSchema = mongoose.Schema({
 	end_at: {
 		type: Date
 	},
-	statut: {
+	status: {
 		type: String
 	},
 	user_id: {

@@ -2,10 +2,12 @@
 const bcrypt = require("bcryptjs");
 
 const hashPassword = async (password) => {
-	const salt = bcrypt.genSalt(4);
+	const salt = await bcrypt.genSalt(4);
 
 	try {
-		let hashedPassword = bcrypt.hash(password, salt);
+		let hashedPassword = await bcrypt.hash(password, salt);
+
+		console.log("The hashed : ", hashedPassword);
 		return hashedPassword;
 	} catch (err) {
 		console.log(`Error while hashing the password ${err}`);

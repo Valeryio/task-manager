@@ -21,17 +21,15 @@ const getUser = (req, res) => {
 	}
 };
 
-const addUser = (req, res) => {
-
+const addUser = async (req, res) => {
 	console.log(req.body);
-
 	const userValidationSchema = joi.object({
 		name: joi.string().min(3).required(),
-		email: joi.string
-		.email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+		email: joi.string()
+		.email()
 		.required(),
 		password: joi.string()
-		.pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+		.pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
 		role: joi.string().required()
 	})
 
@@ -47,11 +45,13 @@ const addUser = (req, res) => {
 	if (err) {
 		res.send(`Errors : ${err}`)
 	} else {
-		console.log(`The user schema validation is : ${value}`);
+		console.log(`The user schema validation is : ${value}, password : ${req.body.password}`);
+		let password = await hashModule.hashPassword(req.body.password)
+
 		const userObj = new userModel({
 			name: req.body.name,
 			email: req.body.email,
-			password: req.body.password,
+			password: password,
 			role: req.body.role
 		});
 	
@@ -63,7 +63,7 @@ const addUser = (req, res) => {
 		.catch((err) => {
 			console.log(`Error while saving the document : ${err}`);
 			res.send(err);
-		})
+		});
 	}
 };
 
