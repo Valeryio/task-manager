@@ -1,0 +1,69 @@
+
+
+
+const SignIn = () => {
+
+	return (
+		<>	
+			<div class=" mx-auto my-[2rem] flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-5xl">
+				
+					<div class="w-full md:w-1/2 p-8">
+						<div class="space-y-6">
+							<h2 class="text-2xl font-bold">Welcome Back <span>👋</span></h2>
+							<p class="text-sm text-gray-500">Today is a new day. It's your day. You shape it. Sign in to start managing your projects.</p>
+
+							<form id="loginForm" class="space-y-4">
+							
+								<div class="">
+									<h3 class="text-sm text-black-300 space-y-4">Email</h3>
+									<input type="Email" placeholder="Example@email.com" required
+									class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+								</div>
+
+								<div class="">
+									<h3 class="text-sm text-black-300 space-y-4">Password</h3>
+									<input type="password" placeholder="at least 8 characters" minlength="6" required
+									class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+								</div>
+
+								<div class="text-right text-sm">
+									<a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+								</div>
+
+								<button type="submit"
+									class="w-full bg-indigo-900 text-white py-2 rounded hover:bg-blue-800">Sign In
+								</button>
+						
+								</form>
+
+							<div class="text-center text-sm text-gray-500">Or</div>
+
+							<div class="space-y-2">
+								<button class="w-full flex items-center justify-center border py-2 rounded hover:bg-gray-100">
+									<img src="https://img.icons8.com/color/24/google-logo.png" class="mr-2" /> Sign in with Google
+								</button>
+								<button class="w-full flex items-center justify-center border py-2 rounded hover:bg-gray-100">
+									<img src="https://img.icons8.com/color/24/facebook-new.png" class="mr-2" /> Sign in with Facebook
+								</button>
+						</div>
+
+							<p class="text-sm text-center text-gray-500 mt-4">
+								Don't you have an account?
+								<a href="#" class="text-blue-500 hover:underline">Sign up</a>
+							</p>
+						</div>
+						<div class="">
+							<p class="text-sm text-center text-gray-500 mt-28">@ 2025 ALL RIGHTS RESERVED </p>
+						</div>
+						
+					</div>
+
+				<div class="hidden md:block w-1/2 m-8">
+					<img src="/public/img/signInImg.jpeg" alt="" class="h-full w-full object-cover" />
+				</div>
+			</div>
+		</>
+	)
+};
+
+export default SignIn;
